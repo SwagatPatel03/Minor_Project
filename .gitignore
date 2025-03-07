@@ -1,0 +1,7 @@
+myproject-env/
+nlp_model/
+__pycache__/
+*.pyc
+*.pdf
+*.pkl
+*.json
