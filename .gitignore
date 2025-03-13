@@ -3,5 +3,5 @@ nlp_model/
 __pycache__/
 *.pyc
 *.pdf
-*.pkl
+resume_data.pkl
 *.json
