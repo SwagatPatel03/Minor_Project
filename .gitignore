@@ -1,7 +1,10 @@
 myproject-env/
 nlp_model/
 __pycache__/
+Resumes/
 *.pyc
 *.pdf
 resume_data.pkl
+.python-version
 *.json
+ML + Rule Based NER Model\api.txt
