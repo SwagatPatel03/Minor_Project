@@ -5,6 +5,6 @@ Resumes/
 *.pyc
 *.pdf
 resume_data.pkl
-.python-version
 *.json
-ML + Rule Based NER Model\api.txt
+ML + Rule Based NER Model/api.txt
+.python-version
