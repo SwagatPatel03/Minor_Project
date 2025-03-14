@@ -8,3 +8,5 @@ resume_data.pkl
 *.json
 ML + Rule Based NER Model/api.txt
 .python-version
+.env
+skill_set.csv
