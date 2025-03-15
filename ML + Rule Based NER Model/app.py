@@ -56,7 +56,7 @@ Analyze this resume and job description to provide these 6 scores:
 5. Experience: Relevance of experience (0-100%)
 6. Customization: Tailoring to this specific job (0-100%)
 
-Format response ONLY as comma-separated numbers: 
+Format response ONLY as comma-separated numbers:
 ATS,Readability,Grammar,Keywords,Experience,Customization
 """
 
