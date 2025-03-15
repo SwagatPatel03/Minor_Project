@@ -270,7 +270,7 @@ def get_sections(text):
     objective_regex = re.compile(objective_regex, re.IGNORECASE)
     education_regex = re.compile(education_regex, re.IGNORECASE)
     work_experience_regex = re.compile(work_experience_regex, re.IGNORECASE)
-    skills_regex = re.compile(r"(?i)Skills|Technical Skills|Computer Skills|Technical skill-set")
+    skills_regex = re.compile(r"(Skills|Technical Skills|Computer Skills|Technical skill-set)")
 
     current_position = 0
     current_header = 'Summary'
