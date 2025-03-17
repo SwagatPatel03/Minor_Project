@@ -37,7 +37,7 @@ This repository contains a Streamlit application that helps users:
 
 ### Flowchart
 
-![Dynamic curriculum Design Workflow](https://drive.google.com/file/d/1ufjYXz5ARrWyHIObfumkhebk9kUVRPDS/view?usp=sharing)
+![Dynamic curriculum Design Workflow](https://drive.google.com/uc?export=view&id=1ufjYXz5ARrWyHIObfumkhebk9kUVRPDS)
 
 ---
 
@@ -152,12 +152,12 @@ API_KEY=<Your YouTube Data API Key>
 
 ### ATS Scoring (Gemini)
 1. **Prompt Construction:** The resume text and job description are combined with an instruction to produce six scores:
-- - ATS Score (overall match)
-- - Readability
-- - Grammar
-- - Keywords
-- - Experience
-- - Customization
+ATS Score (overall match)
+   - Readability
+   - Grammar
+   - Keywords
+   - Experience
+   - Customization
 2. **Call to PaLM 2 / Gemini:** The prompt is sent via google.generativeai. The response is parsed for six comma-separated numbers.
 3. **Display:** The application shows each metric in a neat layout (e.g., "ATS Score: 85%").
 
@@ -180,8 +180,8 @@ The user sees:
 ![Resume Upload Screenshot](https://drive.google.com/uc?export=view&id=1UMfi5-NGNKqsBItkDhO41MuKbbOkaaAW)
 
 ### 3. Job Description Input & Recommendation
-![Job Description Screenshot](https://drive.google.com/file/d/1jzZtxSzBMrPleHjKzCvQeERLYL3o3eJ6/view?usp=sharing)
+![Job Description Screenshot](https://drive.google.com/uc?export=view&id=1jzZtxSzBMrPleHjKzCvQeERLYL3o3eJ6)
 
-![Recommended Courses 1](https://drive.google.com/file/d/1bcvIYHG2V7zvs59YbPmkmojeAGAARMlH/view?usp=sharing)
+![Recommended Courses 1](https://drive.google.com/uc?export=view&id=1bcvIYHG2V7zvs59YbPmkmojeAGAARMlH)
 
-![Recommended Courses 2](https://drive.google.com/file/d/1aGA2XAHYPsMszJZ7NIlEFwck7LsSuPc3/view?usp=sharing)
+![Recommended Courses 2](https://drive.google.com/uc?export=view&id=1aGA2XAHYPsMszJZ7NIlEFwck7LsSuPc3)
