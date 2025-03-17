@@ -177,7 +177,7 @@ The user sees:
 ## App Screenshots
 
 ### 1. Resume Upload & Extraction
-![Resume Upload Screenshot](https://drive.google.com/file/d/1UMfi5-NGNKqsBItkDhO41MuKbbOkaaAW/view?usp=sharing)
+![Resume Upload Screenshot](https://drive.google.com/uc?export=view&id=1UMfi5-NGNKqsBItkDhO41MuKbbOkaaAW)
 
 ### 3. Job Description Input & Recommendation
 ![Job Description Screenshot](https://drive.google.com/file/d/1jzZtxSzBMrPleHjKzCvQeERLYL3o3eJ6/view?usp=sharing)
