@@ -60,7 +60,7 @@ Format response ONLY as comma-separated numbers:
 ATS,Readability,Grammar,Keywords,Experience,Customization
 """
 
-st.title("AI Career Assistant")
+st.title("Dynamic Curriculum Design")
 
 # File upload section
 with st.sidebar:

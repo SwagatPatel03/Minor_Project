@@ -1,4 +1,4 @@
-# AI Career Assistant
+# Dynamic Curriculum Design
 
 This repository contains a Streamlit application that helps users:
 1. **Extract information (skills, education, etc.) from a resume** using a combination of Machine Learning (ML) and rule-based methods.
@@ -35,11 +35,39 @@ This repository contains a Streamlit application that helps users:
 
 ---
 
+### Flowchart
+
+![Dynamic curriculum Design Workflow](https://drive.google.com/file/d/1ufjYXz5ARrWyHIObfumkhebk9kUVRPDS/view?usp=sharing)
+
+---
+
 ## Prerequisites
 
 1. **Python 3.9+** (Recommended)
 2. **Git** (Optional but recommended)
-3. **Internet Connection** (API calls to Google's Generative AI and YouTube)  
+3. **Important Python Libraries**
+   The application depends on several key libraries. Make sure to install them using `pip`:
+   - **Streamlit:** For creating the interactive web interface.
+     `pip install streamlit`
+   - **pdfplumber:** For extracting text from PDF files.
+     `pip install pdfplumber`
+   - **docx2txt:** For extracting text from DOCX files.
+     `pip install docx2txt`
+   - **pandas:** For data manipulation and CSV handling.
+     `pip install pandas`
+   - **spacy:** For natural language processing (NLP) tasks such as tokenization and named entity recognition.
+     `pip install spacy`
+   - **NLTK:** For additional NLP utilities (e.g., tokenization, stopword removal).
+     `pip install nltk`
+   - **google-generativeai:** For interfacing with Google’s Generative AI model (Gemini) for ATS scoring.
+     `pip install google-generativeai`
+   - **python-dotenv:** For loading environment variables from a `.env` file.
+     `pip install python-dotenv`
+   - **rapidfuzz:** For fuzzy matching, particularly used in company extraction.
+     `pip install rapidfuzz`
+   - **requests:** For making HTTP requests (used in the recommendation module).
+     `pip install requests`
+4. **Internet Connection** (API calls to Google's Generative AI and YouTube)
 
 ---
 
@@ -51,14 +79,19 @@ This repository contains a Streamlit application that helps users:
    cd AI-Career-Assistant
 
 2. **Create & Activate a Virtual Environment**
+    ```bash
     python -m venv myenv
     myenv\Scripts\activate
 
 3. **pip install -r requirements.txt**
+    ```bash
     pip install -r requirements.txt
 
 4. **Download NLTK Data**
+    ```bash
     python download_nltk_data.py
+
+---
 
 ## Environment Variables
 Create a .env file in the project root with your keys. For example:
@@ -66,19 +99,21 @@ Create a .env file in the project root with your keys. For example:
 GOOGLE_API_KEY=<Your PaLM 2 (Gemini) Key>
 API_KEY=<Your YouTube Data API Key>
 
+---
+
 ## Key Files Explanation
 **app.py**
 - **File Upload:** Users upload a PDF, DOCX, or TXT resume.
 - **Resume Extraction:** Uses pdfplumber or docx2txt to convert the resume into text.
-- **Skill Cleaning:** Sends the raw skills to cleaning_module.py for LLM-based cleaning.
-- **ob Description:** Users paste a job description, and the app calls recommendation.py to find missing skills + recommended courses.
+- **Skill Cleaning:** Sends the raw skills to `cleaning_module.py` for LLM-based cleaning.
+- **ob Description:** Users paste a job description, and the app calls `recommendation.py` to find missing skills + recommended courses.
 - **ATS Scoring (Gemini):** The resume and job description are sent to Google's model to generate ATS-like scores.
 
 **cleaning_module.py**
 - **LLM Cleaning:** The function clean_text_with_groq (or a similar LLM function) is used to correct spelling, remove duplicates, and filter out irrelevant items from a list of extracted skills.
 
 **ner_module.py**
-- **Information Extraction:** Extracts names, phone, email, degrees, skills, etc., using both ML (SkillNER) and fallback rule-based methods (like searching skill_set.txt).
+- **Information Extraction:** Extracts names, phone, email, degrees, skills, etc., using both ML (SkillNER) and fallback rule-based methods (like searching `skill_set.txt`).
 
 **recommendation.py**
 - **Missing Skills & Courses:** Compares user's cleaned skills to a dataset or job description.
@@ -90,6 +125,8 @@ API_KEY=<Your YouTube Data API Key>
 **download_nltk_data.py**
 - **NLTK Setup:** Downloads corpora needed for tokenization and lemmatization.
 
+---
+
 ## How It Works
 
 ### Resume Upload & Extraction
@@ -99,8 +136,8 @@ API_KEY=<Your YouTube Data API Key>
 
 ### NER (Named Entity Recognition) & Rule-Based Extraction
 1. ner_module is invoked with the extracted resume text.
-2. If ML is available (SkillNER), it attempts to identify skills. Otherwise, it falls back to scanning skill_set.txt for partial matches.
-3. Similarly, it extracts company names (with fuzzy matching against company.txt), job titles (with job-titles.txt), degrees (with spaCy patterns), etc.
+2. If ML is available (SkillNER), it attempts to identify skills. Otherwise, it falls back to scanning `skill_set.txt` for partial matches.
+3. Similarly, it extracts company names (with fuzzy matching against `company.txt`), job titles (with `job-titles.txt`), degrees (with spaCy patterns), etc.
 4. The output includes a list of raw skills.
 
 ### Skill Cleaning via LLM
@@ -110,17 +147,17 @@ API_KEY=<Your YouTube Data API Key>
 
 ### Job Description Input & Recommendation
 1. The user pastes a job description.
-2. recommendation.py uses either TF-IDF, a local skill dataset, or a YouTube-based approach to find missing skills and relevant courses.
+2. `recommendation.py` uses either TF-IDF, a local skill dataset, or a YouTube-based approach to find missing skills and relevant courses.
 3. For example, it might identify that "AWS" is needed but not present in the user's skill set, then suggest an "AWS Certified Solutions Architect" course link.
 
 ### ATS Scoring (Gemini)
 1. **Prompt Construction:** The resume text and job description are combined with an instruction to produce six scores:
-- ATS Score (overall match)
-- Readability
-- Grammar
-- Keywords
-- Experience
-- Customization
+- - ATS Score (overall match)
+- - Readability
+- - Grammar
+- - Keywords
+- - Experience
+- - Customization
 2. **Call to PaLM 2 / Gemini:** The prompt is sent via google.generativeai. The response is parsed for six comma-separated numbers.
 3. **Display:** The application shows each metric in a neat layout (e.g., "ATS Score: 85%").
 
@@ -134,3 +171,17 @@ The user sees:
 - Extracted Resume Info (cleaned skills, etc.).
 - Missing Skills & Course Recommendations for the pasted job description.
 - ATS Scores summarizing how well the resume fits that job.
+
+---
+
+## App Screenshots
+
+### 1. Resume Upload & Extraction
+![Resume Upload Screenshot](https://drive.google.com/file/d/1UMfi5-NGNKqsBItkDhO41MuKbbOkaaAW/view?usp=sharing)
+
+### 3. Job Description Input & Recommendation
+![Job Description Screenshot](https://drive.google.com/file/d/1jzZtxSzBMrPleHjKzCvQeERLYL3o3eJ6/view?usp=sharing)
+
+![Recommended Courses 1](https://drive.google.com/file/d/1bcvIYHG2V7zvs59YbPmkmojeAGAARMlH/view?usp=sharing)
+
+![Recommended Courses 2](https://drive.google.com/file/d/1aGA2XAHYPsMszJZ7NIlEFwck7LsSuPc3/view?usp=sharing)
